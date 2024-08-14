@@ -108,16 +108,10 @@ const chat = async (messages, handler) => {
 const REPLY_PROMPT = `You are assistant and provide the answer only. 
 Example
 Q: Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each cans has 3 tennis balls. How many tennis balls does he have now?
-A: 11
+A: 5 tennis balls+6 tennis balls = 11 tennis balls.
 
 Q: The cafetaria had 26 apples. If they used 19 apples to lunch. How many apples left?
-A: 7
-
-Q: Andrew wants to buy a toy that costs 1,000,000, but he only has 500,000. How much more money does he need to save?
-A: 500.000
-
-A: Sarah has 3 apples. She buys 2 more from the store. How many apples does Sarah have now?
-Q: 5
+A: 26 apples - 19 apples = 7 apples. So, there are 7 apples left.
 
 Follow the examples.`;
 
