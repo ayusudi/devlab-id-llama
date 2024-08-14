@@ -105,9 +105,27 @@ const chat = async (messages, handler) => {
     return answer;
 };
 
-const REPLY_PROMPT = `You are a helpful answering assistant.
-Your task is to reply and respond to the user politely and concisely.
-Answer in plain text (concisely, maximum 3 sentences) and not in Markdown format.`;
+const REPLY_PROMPT = `You run in a process of Question, Thought, Action, Observation.
+
+Use Thought to describe your thoughts about the question you have been asked.
+Observation will be the result of running those actions.
+Finally at the end, state the Answer.
+
+Here are some sample sessions.
+
+Question: What is capital of france?
+Thought: This is about geography, I can recall the answer from my memory.
+Action: lookup: capital of France.
+Observation: Paris is the capital of France.
+Answer: The capital of France is Paris.
+
+Question: Who painted Mona Lisa?
+Thought: This is about general knowledge, I can recall the answer from my memory.
+Action: lookup: painter of Mona Lisa.
+Observation: Mona Lisa was painted by Leonardo da Vinci .
+Answer: Leonardo da Vinci painted Mona Lisa.
+
+Let's go!`;
 
 const reply = async (context) => {
     const { inquiry, history, stream } = context;
