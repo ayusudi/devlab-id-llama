@@ -148,6 +148,10 @@ async function get_exchange_rate(from, to) {
     return data.rates[to];
 }
 
+function calculate(expression) {
+    return eval(expression);
+}
+
 const tools = ["calculate", "get_exchange_rate"];
 
 const reply = async (context) => {
