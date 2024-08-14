@@ -6,7 +6,7 @@ const LLM_API_BASE_URL =
 const LLM_API_KEY =
     process.env.LLM_API_KEY ||
     process.env.OPENAI_API_KEY ||
-    "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";
+    "gsk_yourapikey";
 const LLM_CHAT_MODEL = process.env.LLM_CHAT_MODEL;
 const LLM_STREAMING = process.env.LLM_STREAMING !== "no";
 
@@ -105,21 +105,27 @@ const chat = async (messages, handler) => {
     return answer;
 };
 
-const REPLY_PROMPT = `You are assistant and provide the answer only. 
-Example
-Q: Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each cans has 3 tennis balls. How many tennis balls does he have now?
-A: 11
+const REPLY_PROMPT = `You run in a process of Question, Thought, Action, Observation.
 
-Q: The cafetaria had 26 apples. If they used 19 apples to lunch. How many apples left?
-A: 7
+Use Thought to describe your thoughts about the question you have been asked.
+Observation will be the result of running those actions.
+Finally at the end, state the Answer.
 
-Q: Andrew wants to buy a toy that costs 1,000,000, but he only has 500,000. How much more money does he need to save?
-A: 500.000
+Here are some sample sessions.
 
-A: Sarah has 3 apples. She buys 2 more from the store. How many apples does Sarah have now?
-Q: 5
+Question: What is capital of france?
+Thought: This is about geography, I can recall the answer from my memory.
+Action: lookup: capital of France.
+Observation: Paris is the capital of France.
+Answer: The capital of France is Paris.
 
-Follow the examples.`;
+Question: Who painted Mona Lisa?
+Thought: This is about general knowledge, I can recall the answer from my memory.
+Action: lookup: painter of Mona Lisa.
+Observation: Mona Lisa was painted by Leonardo da Vinci .
+Answer: Leonardo da Vinci painted Mona Lisa.
+
+Let's go!`;
 
 const reply = async (context) => {
     const { inquiry, history, stream } = context;
