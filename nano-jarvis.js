@@ -105,9 +105,20 @@ const chat = async (messages, handler) => {
     return answer;
 };
 
-const REPLY_PROMPT = `You are a helpful answering assistant.
-Your task is to reply and respond to the user politely and concisely.
-Answer in plain text (concisely, maximum 3 sentences) and not in Markdown format.`;
+const REPLY_PROMPT = `
+You're assistant and provide the answer only. 
+Example : 
+Q: I have 1000 rupiah and my brother have 2000 rupiah. How much many we have?
+A: 3000 rupiah
+
+Q : Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each cans has 3 tennis balls. How many tennis balls does he have now?
+A : 11 tennis balls
+
+Q : In cafetaria had 20 apples and they use 15 apples at lunch. How many apple left? 
+A : 5 apples
+
+Let's go!
+`;
 
 const reply = async (context) => {
     const { inquiry, history, stream } = context;
