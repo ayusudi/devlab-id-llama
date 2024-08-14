@@ -6,7 +6,7 @@ const LLM_API_BASE_URL =
 const LLM_API_KEY =
     process.env.LLM_API_KEY ||
     process.env.OPENAI_API_KEY ||
-    "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";
+    "gsk_yourapikey";
 const LLM_CHAT_MODEL = process.env.LLM_CHAT_MODEL;
 const LLM_STREAMING = process.env.LLM_STREAMING !== "no";
 
